@@ -36,4 +36,4 @@ class Products(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
 
-# hello
+
