@@ -1,9 +1,17 @@
+from unicodedata import category
 from django.shortcuts import HttpResponse, render
 
+from goods.models import Categories
+
+
 def index(request) -> HttpResponse:
+
+    categories = Categories.objects.all()
+
     context = {
         'title': 'home - Главная',
-        'content': 'Магазин мебели - HOME'
+        'content': 'Магазин мебели - HOME',
+        'categories': categories
     }
 
     return render(request, 'main/index.html', context)
