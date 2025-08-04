@@ -12,7 +12,7 @@ def catalog(request, category_slug=None) -> HttpResponse:
     on_sale = request.GET.get('on_sale', None)
     order_by = request.GET.get('order_by', None)
     print(request.GET)
-    query = request.GET['q']
+    query = request.GET.get('q', None)
 
     
 
