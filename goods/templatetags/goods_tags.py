@@ -1,4 +1,4 @@
-from urllib.parse import urlencode
+from django.utils.http import urlencode
 from goods.models import Categories
 from django import template
 
