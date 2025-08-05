@@ -14,6 +14,7 @@ from base64 import encode
 from pathlib import Path
 from pickle import STACK_GLOBAL
 from token import ENCODING
+import os
 
 from django.conf.global_settings import MEDIA_URL
 
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': "django.template.backends.django.DjangoTemplates",
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
