@@ -1,5 +1,5 @@
 from django.http.response import HttpResponse
-from django.shortcuts import HttpResponseRedirect, render
+from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.template import context
 from django.contrib import auth
 from django.urls import reverse
@@ -52,4 +52,5 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect("main:index")
