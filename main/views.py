@@ -8,7 +8,7 @@ from goods.models import Categories, Products
 def index(request, category_slug=None) -> HttpResponse:
 
     page = request.GET.get('page', 1 )
-    goods = Products.objects.filter(id__lt=10)
+    goods = Products.objects.filter()[:9]
 
     context = {
         'title': 'home - Главная',
