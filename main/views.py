@@ -4,14 +4,7 @@ from django.shortcuts import HttpResponse, render
 from goods.models import Categories
 
 
-<<<<<<< HEAD
 def index(request) -> HttpResponse:
-=======
-def index(request, category_slug=None) -> HttpResponse:
-
-    page = request.GET.get('page', 1 )
-    goods = Products.objects.filter()[:9]
->>>>>>> e1ded3d2c89a029f73d0bda48b593df9743132a2
 
     context = {
         'title': 'home - Главная',
