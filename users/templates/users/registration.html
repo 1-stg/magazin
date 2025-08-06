@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block modal_cart %}
+  {% include 'includes/cart_button.html' %}
+{% endblock %}
+
 {% block content %}
   <!-- Контент на странице -->
   <div class="row">
@@ -11,7 +15,7 @@
           <form action="{% url 'users:registration' %}" method="post">
             <div class="row">
               {% csrf_token %}
-              
+
               <div class="col-md-6 mb-3">
                 <label for="firstName" class="form-label">Имя*</label>
                 <input type="text" class="form-control" id="firstName" name="first_name" placeholder="Введите ваше имя" value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}" required />
@@ -19,7 +23,7 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.first_name.errors }}</div>
                 {% endif %}
               </div>
-              
+
               <div class="col-md-6 mb-3">
                 <label for="lastName" class="form-label">Фамилия*</label>
                 <input type="text" class="form-control" id="lastName" name="last_name" value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}" placeholder="Введите вашу фамилию" required />
@@ -27,7 +31,7 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.last_name.errors }}</div>
                 {% endif %}
               </div>
-              
+
               <div class="col-md-6 mb-3">
                 <label for="username" class="form-label">Имя пользователя*</label>
                 <input type="text" class="form-control" id="username" name="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" placeholder="Введите ваше имя пользователя" required />
@@ -35,7 +39,7 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.username.errors }}</div>
                 {% endif %}
               </div>
-              
+
               <div class="col-md-6 mb-3">
                 <label for="email" class="form-label">Email*</label>
                 <input type="email" class="form-control" id="email" name="email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" placeholder="Введите ваш email" required />
@@ -43,7 +47,7 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.email.errors }}</div>
                 {% endif %}
               </div>
-              
+
               <div class="col-md-6 mb-3">
                 <label for="password1" class="form-label">Пароль*</label>
                 <input type="password" class="form-control" id="password1" name="password1" value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}" placeholder="Введите пароль" required />
@@ -51,7 +55,7 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.password1.errors }}</div>
                 {% endif %}
               </div>
-              
+
               <div class="col-md-6 mb-3">
                 <label for="password2" class="form-label">Подтверждение пароля*</label>
                 <input type="password" class="form-control" id="password2" name="password2" value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}" placeholder="Подтвердите пароль" required />
@@ -59,7 +63,6 @@
                   <div class="alert alert-danger alert-dismissible fade show">{{ form.password2.errors }}</div>
                 {% endif %}
               </div>
-              
             </div>
             <button type="submit" class="btn btn-dark btn-block">Зарегистрироваться</button>
           </form>
