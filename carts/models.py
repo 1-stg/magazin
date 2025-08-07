@@ -22,11 +22,6 @@ class Cart(models.Model):
     session_key = models.CharField(max_length=32, null=True, blank=True)
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
 
-    class Meta:
-        db_table = 'cart'
-        verbose_name = "Корзину"
-        verbose_name_plural = "Корзины"
-    
     objects = CartQuerySet().as_manager()
     
     def products_price(self):
@@ -37,5 +32,11 @@ class Cart(models.Model):
         if self.user:
             return f"Корзина: {self.user.username} | Товар: {self.product.name} | Колличество: {self.quantity}"
 
-        return f"Анонимная корзина | Товар: {self.product.name} | Колличество: {self.quantity} "
+        return f"Анонимная корзина | Товар: {self.product.name} | Колличество: {self.quantity}"
+        
+    class Meta:
+        db_table = 'cart'
+        verbose_name = "Корзину"
+        verbose_name_plural = "Корзины"
+    
 
